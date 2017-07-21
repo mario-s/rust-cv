@@ -1,0 +1,7 @@
+[package]
+name = "rusty_cv"
+version = "0.0.1"
+authors = ["mario-s <spindizzy@outlook.com>"]
+
+[dependencies]
+opencv = "0.2.3"
