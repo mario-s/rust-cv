@@ -7,7 +7,11 @@ use opencv::objdetect;
 
 use std::{thread, time};
 
+mod recognization;
+
 fn run() -> Result<(),String> {
+    let recog = recognization::FisherFaces::new(".");
+
     let sleep_duration = time::Duration::from_millis(50);
     let window = "video capture";
     let xml = "resources/haarcascade_frontalface_alt.xml";
@@ -53,6 +57,7 @@ fn run() -> Result<(),String> {
 
         for face in faces.iter() {
             println!("face {:?}", face);
+            println!("we got: {}", recog.predict(&reduced));
             let scaled_face = core::Rect{
                 x: face.x*4, y:face.y*4,
                 width:face.width*4, height:face.height*4
